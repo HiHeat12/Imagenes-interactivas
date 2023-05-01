@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Imágenes Interactivas</title>
+	<script src="script.js"></script>
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f7f7f7;
+		}
+
+		h1 {
+			margin: 0;
+			padding: 20px;
+			background-color: #333;
+			color: #fff;
+			text-align: center;
+		}
+
+		#images {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+		}
+
+		.image {
+			display: block;
+			width: 200px;
+			height: auto;
+			margin: 10px;
+			cursor: pointer;
+			transition: transform 0.3s ease-out;
+		}
+
+		.image:hover {
+			transform: scale(1.1);
+		}
+
+		#text,
+		#description {
+			margin: 0;
+			padding: 10px;
+			background-color: #333;
+			color: #fff;
+			text-align: center;
+		}
+
+		.enlarged-image {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.8);
+			z-index: 1;
+		}
+
+		.enlarged-image img {
+			max-width: 80%;
+			max-height: 80%;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+		}
+
+		.close-button {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-size: 24px;
+			color: #ffff;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Imágenes Interactivas</h1>
+	<div id="images">
+		<img src="Imagenes/Max.webp" class="image" onmouseover="showText('Max Verstappen')"
+			onclick="showDescription('Max Emilian Verstappen es un piloto de automovilismo neerlandés nacido en Bélgica.​ Fue campeón del Campeonato Mundial de Karting en 2013. Es piloto de Fórmula 1 desde 2015, debutando con la escudería Toro Rosso.')" ondblclick="enlargeImage(this.src)">
+		<img src="Imagenes/Checo.webp" class="image" onmouseover="showText('Sergio Checo Perez')"
+			onclick="showDescription('Sergio Michel Pérez Mendoza, también conocido como Checo Pérez, es un piloto de automovilismo mexicano. Actualmente es miembro de la Escudería Telmex.​ Desde 2021 es piloto de Red Bull en Fórmula 1, resultando tercero en 2022.​ Comenzó su carrera en 2004; en la Fórmula 3 Británica fue campeón en 2007')" ondblclick="enlargeImage(this.src)">
+		<img src="Imagenes/Lando.jpg" class="image" onmouseover="showText('Lando Norris')"
+			onclick="showDescription('Lando Norris es un piloto de automovilismo británico que también posee la nacionalidad belga.​ Ha sido campeón del Campeonato Mundial de Karting en 2014, de la Fórmula 3 Europea en 2017 y subcampeón del Campeonato de Fórmula 2 de la FIA en 2018.​​ Desde 2019 es piloto de la escudería McLaren de Fórmula 1')" ondblclick="enlargeImage(this.src)">
+		<img src="Imagenes/Oscar.webp" class="image" onmouseover="showText('Oscar Piastri')"
+			onclick="showDescription('Oscar Piastri es un piloto de automovilismo australiano. En 2021 fue miembro de la Academia Alpine y piloto reserva de Alpine en 2022.​ En 2023 es piloto de McLaren en Fórmula 1.​Entre los años 2019 y 2021 ha logrado tres títulos seguidos: Eurocopa de Fórmula Renault, Fórmula 3 y Fórmula 2.')" ondblclick="enlargeImage(this.src)">
+		<img src="Imagenes/Alonso.jpg" class="image" onmouseover="showText('Fernando Alonso')"
+			onclick="showDescription('Fernando Alonso Díaz es un piloto de automovilismo español, galardonado como Premio Príncipe de Asturias en 2005. Ha ganado dos veces el Campeonato Mundial de Fórmula 1 en 2005 y 2006, ​resultó subcampeón en 2010, 2012 y 2013, y obtuvo un tercer puesto en 2007')" ondblclick="enlargeImage(this.src)">
+		<img src="Imagenes/Charles.jpg" class="image" onmouseover="showText('Charles Leclerc')"
+			onclick="showDescription('Charles Marc Hervé Perceval Leclerc, más conocido como Charles Leclerc, es un piloto de automovilismo monegasco. Fue campeón del Campeonato Mundial de Karting en 2011, de GP3 Series en 2016 y de Fórmula 2 en 2017')" ondblclick="enlargeImage(this.src)">
+		<img src="Imagenes/George.jpg" class="image" onmouseover="showText('George Russell')"
+			onclick="showDescription('George William Russell es un piloto de automovilismo británico.​ Fue campeón de GP3 Series en 2017 y de Fórmula 2 en 2018. Desde 2019 hasta 2021 compitió para Williams en Fórmula 1.​ Desde 2022 es piloto de la escudería Mercedes-AMG Petronas')" ondblclick="enlargeImage(this.src)">
+		<img src="Imagenes/Lewis.jpg" class="image" onmouseover="showText('Lewis Hamilton')"
+			onclick="showDescription('Lewis Carl Davidson Larbalestier Hamilton​​ es un piloto británico de automovilismo. En Fórmula 1 desde 2007 hasta 2012, fue piloto de la escudería McLaren, con la cual fue campeón en 2008 y subcampeón en 2007')" ondblclick="enlargeImage(this.src)">
+		<img src="Imagenes/Bottas.jpg" class="image" onmouseover="showText('Valtteri Bottas')"
+			onclick="showDescription('Valtteri Viktor Bottas es un piloto de automovilismo finlandés.​ Debutó en Fórmula 1 en 2013 con el equipo Williams, donde se mantuvo hasta 2016')" ondblclick="enlargeImage(this.src)">
+	</div>
+	<p id="text"></p>
+	<p id="description"></p>
+</body>
+
+</html>
